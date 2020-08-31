@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
 {
     public partial class Alarm501 : Form
     {
+        //the socond form
         private InputTime UserClockEditor;
 
         //list of all the clocks. 
@@ -27,8 +28,6 @@ namespace WindowsFormsApp1
         public Alarm501()
         {
             InitializeComponent();
-            //Alarm501.IsMdiContainer = true;
-             
         }
 
         /// <summary>
@@ -38,9 +37,15 @@ namespace WindowsFormsApp1
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            
-
+            int hold = Display.SelectedIndex;
+            //MessageBox.Show(hold.ToString());
+            int ClocksSize = clocks.Count();
+            if ((hold < ClocksSize) && hold > -1)
+            {
+                UserClockEditor = new InputTime(this,false,hold);
+                UserClockEditor.Show();
+                clocks.Remove(clocks[hold]);
+            }
         }
 
         /// <summary>
@@ -51,23 +56,69 @@ namespace WindowsFormsApp1
         /// <param name="e"></param>
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            UserClockEditor = new InputTime();
+            UserClockEditor = new InputTime(this,true,0);
             UserClockEditor.Show();
             if (clocks.Count >= 10)
             {
-                //this.BtnAdd.Enabled = true;
                 BtnAdd.Enabled = false;
             }
         }
 
         /// <summary>
-        /// takes int the datetime to add the new clock from the second form. 
+        /// adds a clock 
         /// </summary>
-        public static void AddClock(DateTime TimeObj)
+        /// <param name="TimeObj">the data for the clock as a datetime</param>
+        /// <param name="first">if it is a new clock or not</param>
+        public static void AddClock(DateTime TimeObj,bool Io, bool first,int i)
         {
             Alarm temp = new Alarm();
-            temp.Time = TimeObj;//UserTime;//new DateTimePicker();
-            clocks.Add(temp);
+            temp.Time = TimeObj;
+            temp.On = Io;
+            if (first)
+            {
+                clocks.Add(temp);
+            }
+            else
+            {
+                //insert the modified clock at the index. 
+                clocks.Insert(i,temp);
+            }
         }
+
+        /// <summary>
+        /// puts the clocks into the display box. 
+        /// </summary>
+        public void Redisplay()
+        {
+            Display.Items.Clear();
+            foreach(Alarm x in clocks)
+            {
+                Display.Items.Add(x.ToString());
+            }
+            Display.Show();
+        }
+
+        /// <summary>
+        /// adds thirty seconds to the selected clock.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnSnoose_Click(object sender, EventArgs e)
+        {
+            //pull out the current selected clock and add 30 seconds to it. 
+            int hold = Display.SelectedIndex;
+            int ClocksSize = clocks.Count();
+            if((hold<ClocksSize)&&hold>-1)
+            {//aparently this is the only way 30 sec can be added???
+                Alarm temp = clocks[hold];
+                temp.Time = temp.Time.AddSeconds(30);
+                clocks[hold].Time = temp.Time;
+                Redisplay();
+            }
+        }
+
+        
+        
+        
     }
 }

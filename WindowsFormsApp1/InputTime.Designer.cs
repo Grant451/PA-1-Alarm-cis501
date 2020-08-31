@@ -31,7 +31,7 @@
             this.DTPInput = new System.Windows.Forms.DateTimePicker();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnSet = new System.Windows.Forms.Button();
-            this.BtnOn = new System.Windows.Forms.RadioButton();
+            this.RbnOn = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // DTPInput
@@ -61,24 +61,24 @@
             this.BtnSet.UseVisualStyleBackColor = true;
             this.BtnSet.Click += new System.EventHandler(this.BtnSet_Click);
             // 
-            // BtnOn
+            // RbnOn
             // 
-            this.BtnOn.AutoSize = true;
-            this.BtnOn.Checked = true;
-            this.BtnOn.Location = new System.Drawing.Point(528, 86);
-            this.BtnOn.Name = "BtnOn";
-            this.BtnOn.Size = new System.Drawing.Size(90, 36);
-            this.BtnOn.TabIndex = 3;
-            this.BtnOn.TabStop = true;
-            this.BtnOn.Text = "On";
-            this.BtnOn.UseVisualStyleBackColor = true;
+            this.RbnOn.AutoCheck = false;
+            this.RbnOn.AutoSize = true;
+            this.RbnOn.Location = new System.Drawing.Point(532, 86);
+            this.RbnOn.Name = "RbnOn";
+            this.RbnOn.Size = new System.Drawing.Size(90, 36);
+            this.RbnOn.TabIndex = 3;
+            this.RbnOn.Text = "Off";
+            this.RbnOn.UseVisualStyleBackColor = true;
+            this.RbnOn.Click += new System.EventHandler(this.RbnOn_Click);
             // 
             // InputTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.BtnOn);
+            this.Controls.Add(this.RbnOn);
             this.Controls.Add(this.BtnSet);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.DTPInput);
@@ -94,6 +94,6 @@
         private System.Windows.Forms.DateTimePicker DTPInput;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnSet;
-        private System.Windows.Forms.RadioButton BtnOn;
+        private System.Windows.Forms.RadioButton RbnOn;
     }
 }

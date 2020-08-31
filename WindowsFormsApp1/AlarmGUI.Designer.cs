@@ -47,7 +47,7 @@
             // 
             // BtnAdd
             // 
-            this.BtnAdd.Location = new System.Drawing.Point(262, 31);
+            this.BtnAdd.Location = new System.Drawing.Point(346, 31);
             this.BtnAdd.Name = "BtnAdd";
             this.BtnAdd.Size = new System.Drawing.Size(136, 87);
             this.BtnAdd.TabIndex = 1;
@@ -61,7 +61,7 @@
             this.Display.ItemHeight = 31;
             this.Display.Location = new System.Drawing.Point(53, 167);
             this.Display.Name = "Display";
-            this.Display.Size = new System.Drawing.Size(345, 283);
+            this.Display.Size = new System.Drawing.Size(429, 283);
             this.Display.TabIndex = 2;
             // 
             // BtnSnoose
@@ -72,10 +72,11 @@
             this.BtnSnoose.TabIndex = 3;
             this.BtnSnoose.Text = "Snooze";
             this.BtnSnoose.UseVisualStyleBackColor = true;
+            this.BtnSnoose.Click += new System.EventHandler(this.BtnSnoose_Click);
             // 
             // Stop
             // 
-            this.Stop.Location = new System.Drawing.Point(262, 522);
+            this.Stop.Location = new System.Drawing.Point(346, 522);
             this.Stop.Name = "Stop";
             this.Stop.Size = new System.Drawing.Size(136, 85);
             this.Stop.TabIndex = 4;
