@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Grant Clothier
+//This is the Alarm class, It holds the status of the alarm as well as the time. 
+using System;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
